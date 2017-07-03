@@ -5,32 +5,29 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:head>
-        <h:outputStylesheet name="style.css" library="css" />
+        <h:outputStylesheet library="css" name="bootstrap.css" />
+        <h:outputStylesheet library="css" name="bootstrap.css.map" />
+        <h:outputStylesheet library="css" name="bootstrap-theme.css" />
+        <h:outputStylesheet library="css" name="bootstrap-theme.css.map" />
     </h:head>
 
     <h:body> 
-        <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;"></div>
+        <div id="header">
+            <ui:insert name="header">
+                <ui:include src="/template/basicheader.xhtml" />
+            </ui:insert>
+        </div>
 
-        <div id="page" style="width: 90%; padding-left: 5%; padding-right: 5%;">
+        <div id="content">
+            <ui:insert name="content" >
+                <ui:include src="/template/basiccontent.xhtml" />
+            </ui:insert>
+        </div>
 
-            <div id="header">
-                <ui:insert name="header" >
-                    <ui:include src="/template/basicheader.xhtml" />
-                </ui:insert>
-            </div>
-
-            <div id="content">
-                <ui:insert name="content" >
-                    <ui:include src="/template/basiccontent.xhtml" />
-                </ui:insert>
-            </div>
-
-            <div id="footer" style="position: relative; bottom: 0; width: 100%">
-                <ui:insert name="footer" >
-                    <ui:include src="/template/basicfooter.xhtml" />
-                </ui:insert>
-            </div>
-
+        <div id="footer" style="position: relative; bottom: 0; width: 100%">
+            <ui:insert name="footer" >
+                <ui:include src="/template/basicfooter.xhtml" />
+            </ui:insert>
         </div>
 
     </h:body> 

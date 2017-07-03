@@ -1,0 +1,925 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+    <ui:define name="content">
+        <div class="container" style="padding: 0px">
+
+            <div class="panel panel-primary" style="margin: 0px">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span> 1. Dados Pessoais</h3>
+                </div>
+
+                <div class="panel-body">
+                    <form id="dadosPessoais" class="form-horizontal" role="form" method="post" enctype="multipart/form-data" action="main.php?modulo=dadosPessoais&amp;acao=salvar" novalidate="novalidate">
+                        <input type="hidden" name="codigoCandidato" value="3"/>
+
+
+                        <fieldset>
+                            <legend>1.1 Início</legend>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="nomeCandidato" class="col-sm-2 control-label">1.1.1 Nome</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                <input type="text" class="form-control" id="nomeCandidato" name="nomeCandidato" value="Afonso Ueslei da Fonseca" maxlength="80" placeholder="Nome completo do candidato" required="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+
+                                        <label for="sexoCandidato" class="col-sm-4 control-label">1.1.2 Sexo</label>
+                                        <div class="col-sm-8">
+                                            <div>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="sexoCandidato" value="M" checked=""/>
+                                                    <span class="lbl"> Masculino</span>
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="sexoCandidato" value="F"/>
+                                                    <span class="lbl"> Feminino</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="estadoCivilCandidato" class="col-sm-4 control-label">1.1.3 Estado Civil</label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" id="estadoCivilCandidato" name="estadoCivilCandidato" required="" autocomplete="off">
+                                                <option value="">Selecione o estado civil</option>
+                                                <option value="SO">Solteiro(a)</option>
+                                                <option value="CA" selected="">Casado(a)</option>
+                                                <option value="DI">Divorciado(a)</option>
+                                                <option value="VI">Viúvo(a)</option>
+                                                <option value="SE">Separado(a)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>1.2 Naturalidade</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="nascimentoCandidato" class="col-sm-4 control-label">1.2.1 Data Nascimento</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                <input type="text" class="form-control" id="nascimentoCandidato" name="nascimentoCandidato" value="01/08/1979" data-mask="99/99/9999" maxlength="10" placeholder="DD/MM/AAAA" required=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="naturalidadeCidadeCandidato" class="col-sm-4 control-label">1.2.2 Cidade</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                                <input type="text" class="form-control" id="naturalidadeCidadeCandidato" name="naturalidadeCidadeCandidato" value="João Pinheiro" maxlength="40" placeholder="Cidade de nascimento" required=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="naturalidadeEstadoCandidato" class="col-sm-4 control-label">1.2.3 Estado</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                                <input type="text" class="form-control" id="naturalidadeEstadoCandidato" name="naturalidadeEstadoCandidato" value="Minas Gerais" maxlength="40" placeholder="Estado de nascimento" required=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>1.3 Filiação</legend>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="paiCandidato" class="col-sm-2 control-label">1.3.1 Pai</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                <input type="text" class="form-control" id="paiCandidato" name="paiCandidato" value="Francisco Batista da Fonseca" maxlength="80" placeholder="Nome completo do pai do candidato" autocomplete="off"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="maeCandidato" class="col-sm-2 control-label">1.3.2 Mãe</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                <input type="text" class="form-control" id="maeCandidato" name="maeCandidato" value="Nastacília Maria da Fonseca" maxlength="80" placeholder="Nome completo da mãe do candidato" required="" autocomplete="off"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>1.4 Endereço</legend>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="logradouroEnderecoCandidato" class="col-sm-2 control-label">1.4.1 Logradouro</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+                                                <input type="text" class="form-control" id="logradouroEnderecoCandidato" name="logradouroEnderecoCandidato" value="Rua 21  Edifício Gardênia Apto. 202C" maxlength="80" placeholder="Logradouro do endereço" required=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="numeroEnderecoCandidato" class="col-sm-4 control-label">1.4.2 Número</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+                                                <input type="text" class="form-control" id="numeroEnderecoCandidato" name="numeroEnderecoCandidato" value="50" maxlength="20" placeholder="Número do endereço" required=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="complementoEnderecoCandidato" class="col-sm-4 control-label">1.4.3 Complemento</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
+                                                <input type="text" class="form-control" id="complementoEnderecoCandidato" name="complementoEnderecoCandidato" value="" maxlength="30" placeholder="Complemento do endereço"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bairroEnderecoCandidato" class="col-sm-4 control-label">1.4.4 Bairro</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                                <input type="text" class="form-control" id="bairroEnderecoCandidato" name="bairroEnderecoCandidato" value="Vila Jaraguá" maxlength="40" placeholder="Bairro do endereço" required=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cepEnderecoCandidato" class="col-sm-4 control-label">1.4.5 CEP</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                                <input type="text" class="form-control" id="cepEnderecoCandidato" name="cepEnderecoCandidato" value="74655-090" data-mask="99999-999" maxlength="9" placeholder="00000-000" required=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="estadoCandidato" class="col-sm-4 control-label">1.4.6 Estado</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                                <select class="form-control" id="estadoCandidato" name="estadoCandidato" required="">
+                                                    <option value="">Selecione o estado</option>
+                                                    <option value="1">Acre</option>
+                                                    <option value="2">Alagoas</option>
+                                                    <option value="4">Amapá</option>
+                                                    <option value="3">Amazonas</option>
+                                                    <option value="5">Bahia</option>
+                                                    <option value="6">Ceará</option>
+                                                    <option value="7">Distrito Federal</option>
+                                                    <option value="8">Espírito Santo</option>
+                                                    <option value="9" selected="">Goiás</option>
+                                                    <option value="10">Maranhão</option>
+                                                    <option value="13">Mato Grosso</option>
+                                                    <option value="12">Mato Grosso do Sul</option>
+                                                    <option value="11">Minas Gerais</option>
+                                                    <option value="14">Pará</option>
+                                                    <option value="15">Paraíba</option>
+                                                    <option value="18">Paraná</option>
+                                                    <option value="16">Pernambuco</option>
+                                                    <option value="17">Piauí</option>
+                                                    <option value="19">Rio de Janeiro</option>
+                                                    <option value="20">Rio Grande do Norte</option>
+                                                    <option value="23">Rio Grande do Sul</option>
+                                                    <option value="21">Rondônia</option>
+                                                    <option value="22">Roraima</option>
+                                                    <option value="24">Santa Catarina</option>
+                                                    <option value="26">São Paulo</option>
+                                                    <option value="25">Sergipe</option>
+                                                    <option value="27">Tocantins</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cidadeCandidato" class="col-sm-4 control-label">1.4.7 Cidade</label>
+                                        <div id="cidadesCarregadas" class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                                <select class="form-control" id="cidadeCandidato" name="cidadeCandidato" required="">
+                                                    <option value="">Selecione a cidade</option>
+                                                    <option value="883">Abadia de Goiás</option>
+                                                    <option value="884">Abadiânia</option>
+                                                    <option value="885">Acreúna</option>
+                                                    <option value="886">Adelândia</option>
+                                                    <option value="887">Água Fria de Goiás</option>
+                                                    <option value="888">Água Limpa</option>
+                                                    <option value="889">Águas Lindas de Goiás</option>
+                                                    <option value="890">Alexânia</option>
+                                                    <option value="891">Aloândia</option>
+                                                    <option value="892">Alto Horizonte</option>
+                                                    <option value="893">Alto Paraíso de Goiás</option>
+                                                    <option value="894">Alvorada do Norte</option>
+                                                    <option value="895">Amaralina</option>
+                                                    <option value="896">Americano do Brasil</option>
+                                                    <option value="897">Amorinópolis</option>
+                                                    <option value="898">Anápolis</option>
+                                                    <option value="899">Anhanguera</option>
+                                                    <option value="900">Anicuns</option>
+                                                    <option value="901">Aparecida de Goiânia</option>
+                                                    <option value="902">Aparecida do Rio Doce</option>
+                                                    <option value="903">Aporé</option>
+                                                    <option value="904">Araçu</option>
+                                                    <option value="905">Aragarças</option>
+                                                    <option value="906">Aragoiânia</option>
+                                                    <option value="907">Araguapaz</option>
+                                                    <option value="908">Arenópolis</option>
+                                                    <option value="909">Aruanã</option>
+                                                    <option value="910">Aurilândia</option>
+                                                    <option value="911">Avelinópolis</option>
+                                                    <option value="912">Baliza</option>
+                                                    <option value="913">Barro Alto</option>
+                                                    <option value="914">Bela Vista de Goiás</option>
+                                                    <option value="915">Bom Jardim de Goiás</option>
+                                                    <option value="916">Bom Jesus de Goiás</option>
+                                                    <option value="917">Bonfinópolis</option>
+                                                    <option value="918">Bonópolis</option>
+                                                    <option value="919">Brazabrantes</option>
+                                                    <option value="920">Britânia</option>
+                                                    <option value="921">Buriti Alegre</option>
+                                                    <option value="922">Buriti de Goiás</option>
+                                                    <option value="923">Buritinópolis</option>
+                                                    <option value="924">Cabeceiras</option>
+                                                    <option value="925">Cachoeira Alta</option>
+                                                    <option value="926">Cachoeira de Goiás</option>
+                                                    <option value="927">Cachoeira Dourada</option>
+                                                    <option value="928">Caçu</option>
+                                                    <option value="929">Caiapônia</option>
+                                                    <option value="930">Caldas Novas</option>
+                                                    <option value="931">Caldazinha</option>
+                                                    <option value="932">Campestre de Goiás</option>
+                                                    <option value="933">Campinaçu</option>
+                                                    <option value="934">Campinorte</option>
+                                                    <option value="935">Campo Alegre de Goiás</option>
+                                                    <option value="936">Campo Limpo de Goiás</option>
+                                                    <option value="937">Campos Belos</option>
+                                                    <option value="938">Campos Verdes</option>
+                                                    <option value="939">Carmo do Rio Verde</option>
+                                                    <option value="940">Castelândia</option>
+                                                    <option value="941">Catalão</option>
+                                                    <option value="942">Caturaí</option>
+                                                    <option value="943">Cavalcante</option>
+                                                    <option value="944">Ceres</option>
+                                                    <option value="945">Cezarina</option>
+                                                    <option value="946">Chapadão do Céu</option>
+                                                    <option value="947">Cidade Ocidental</option>
+                                                    <option value="948">Cocalzinho de Goiás</option>
+                                                    <option value="949">Colinas do Sul</option>
+                                                    <option value="950">Córrego do Ouro</option>
+                                                    <option value="951">Corumbá de Goiás</option>
+                                                    <option value="952">Corumbaíba</option>
+                                                    <option value="953">Cristalina</option>
+                                                    <option value="954">Cristianópolis</option>
+                                                    <option value="955">Crixás</option>
+                                                    <option value="956">Cromínia</option>
+                                                    <option value="957">Cumari</option>
+                                                    <option value="958">Damianópolis</option>
+                                                    <option value="959">Damolândia</option>
+                                                    <option value="960">Davinópolis</option>
+                                                    <option value="961">Diorama</option>
+                                                    <option value="962">Divinópolis de Goiás</option>
+                                                    <option value="963">Doverlândia</option>
+                                                    <option value="964">Edealina</option>
+                                                    <option value="965">Edéia</option>
+                                                    <option value="966">Estrela do Norte</option>
+                                                    <option value="967">Faina</option>
+                                                    <option value="968">Fazenda Nova</option>
+                                                    <option value="969">Firminópolis</option>
+                                                    <option value="970">Flores de Goiás</option>
+                                                    <option value="971">Formosa</option>
+                                                    <option value="972">Formoso</option>
+                                                    <option value="973">Gameleira de Goiás</option>
+                                                    <option value="974">Goianápolis</option>
+                                                    <option value="975">Goiandira</option>
+                                                    <option value="976">Goianésia</option>
+                                                    <option value="977" selected="">Goiânia</option>
+                                                    <option value="978">Goianira</option>
+                                                    <option value="979">Goiás</option>
+                                                    <option value="980">Goiatuba</option>
+                                                    <option value="981">Gouvelândia</option>
+                                                    <option value="982">Guapó</option>
+                                                    <option value="983">Guaraíta</option>
+                                                    <option value="984">Guarani de Goiás</option>
+                                                    <option value="985">Guarinos</option>
+                                                    <option value="986">Heitoraí</option>
+                                                    <option value="987">Hidrolândia</option>
+                                                    <option value="988">Hidrolina</option>
+                                                    <option value="989">Iaciara</option>
+                                                    <option value="990">Inaciolândia</option>
+                                                    <option value="991">Indiara</option>
+                                                    <option value="992">Inhumas</option>
+                                                    <option value="993">Ipameri</option>
+                                                    <option value="994">Ipiranga de Goiás</option>
+                                                    <option value="995">Iporá</option>
+                                                    <option value="996">Israelândia</option>
+                                                    <option value="997">Itaberaí</option>
+                                                    <option value="998">Itaguari</option>
+                                                    <option value="999">Itaguaru</option>
+                                                    <option value="1000">Itajá</option>
+                                                    <option value="1001">Itapaci</option>
+                                                    <option value="1002">Itapirapuã</option>
+                                                    <option value="1003">Itapuranga</option>
+                                                    <option value="1004">Itarumã</option>
+                                                    <option value="1005">Itauçu</option>
+                                                    <option value="1006">Itumbiara</option>
+                                                    <option value="1007">Ivolândia</option>
+                                                    <option value="1008">Jandaia</option>
+                                                    <option value="1009">Jaraguá</option>
+                                                    <option value="1010">Jataí</option>
+                                                    <option value="1011">Jaupaci</option>
+                                                    <option value="1012">Jesúpolis</option>
+                                                    <option value="1013">Joviânia</option>
+                                                    <option value="1014">Jussara</option>
+                                                    <option value="1015">Lagoa Santa</option>
+                                                    <option value="1016">Leopoldo de Bulhões</option>
+                                                    <option value="1017">Luziânia</option>
+                                                    <option value="1018">Mairipotaba</option>
+                                                    <option value="1019">Mambaí</option>
+                                                    <option value="1020">Mara Rosa</option>
+                                                    <option value="1021">Marzagão</option>
+                                                    <option value="1022">Matrinchã</option>
+                                                    <option value="1023">Maurilândia</option>
+                                                    <option value="1024">Mimoso de Goiás</option>
+                                                    <option value="1025">Minaçu</option>
+                                                    <option value="1026">Mineiros</option>
+                                                    <option value="1027">Moiporá</option>
+                                                    <option value="1028">Monte Alegre de Goiás</option>
+                                                    <option value="1029">Montes Claros de Goiás</option>
+                                                    <option value="1030">Montividiu</option>
+                                                    <option value="1031">Montividiu do Norte</option>
+                                                    <option value="1032">Morrinhos</option>
+                                                    <option value="1033">Morro Agudo de Goiás</option>
+                                                    <option value="1034">Mossâmedes</option>
+                                                    <option value="1035">Mozarlândia</option>
+                                                    <option value="1036">Mundo Novo</option>
+                                                    <option value="1037">Mutunópolis</option>
+                                                    <option value="1038">Nazário</option>
+                                                    <option value="1039">Nerópolis</option>
+                                                    <option value="1040">Niquelândia</option>
+                                                    <option value="1041">Nova América</option>
+                                                    <option value="1042">Nova Aurora</option>
+                                                    <option value="1043">Nova Crixás</option>
+                                                    <option value="1044">Nova Glória</option>
+                                                    <option value="1045">Nova Iguaçu de Goiás</option>
+                                                    <option value="1046">Nova Roma</option>
+                                                    <option value="1047">Nova Veneza</option>
+                                                    <option value="1048">Novo Brasil</option>
+                                                    <option value="1049">Novo Gama</option>
+                                                    <option value="1050">Novo Planalto</option>
+                                                    <option value="1051">Orizona</option>
+                                                    <option value="1052">Ouro Verde de Goiás</option>
+                                                    <option value="1053">Ouvidor</option>
+                                                    <option value="1054">Padre Bernardo</option>
+                                                    <option value="1055">Palestina de Goiás</option>
+                                                    <option value="1056">Palmeiras de Goiás</option>
+                                                    <option value="1057">Palmelo</option>
+                                                    <option value="1058">Palminópolis</option>
+                                                    <option value="1059">Panamá</option>
+                                                    <option value="1060">Paranaiguara</option>
+                                                    <option value="1061">Paraúna</option>
+                                                    <option value="1062">Perolândia</option>
+                                                    <option value="1063">Petrolina de Goiás</option>
+                                                    <option value="1064">Pilar de Goiás</option>
+                                                    <option value="1065">Piracanjuba</option>
+                                                    <option value="1066">Piranhas</option>
+                                                    <option value="1067">Pirenópolis</option>
+                                                    <option value="1068">Pires do Rio</option>
+                                                    <option value="1069">Planaltina</option>
+                                                    <option value="1070">Pontalina</option>
+                                                    <option value="1071">Porangatu</option>
+                                                    <option value="1072">Porteirão</option>
+                                                    <option value="1073">Portelândia</option>
+                                                    <option value="1074">Posse</option>
+                                                    <option value="1075">Professor Jamil</option>
+                                                    <option value="1076">Quirinópolis</option>
+                                                    <option value="1077">Rialma</option>
+                                                    <option value="1078">Rianápolis</option>
+                                                    <option value="1079">Rio Quente</option>
+                                                    <option value="1080">Rio Verde</option>
+                                                    <option value="1081">Rubiataba</option>
+                                                    <option value="1082">Sanclerlândia</option>
+                                                    <option value="1083">Santa Bárbara de Goiás</option>
+                                                    <option value="1084">Santa Cruz de Goiás</option>
+                                                    <option value="1085">Santa Fé de Goiás</option>
+                                                    <option value="1086">Santa Helena de Goiás</option>
+                                                    <option value="1087">Santa Isabel</option>
+                                                    <option value="1088">Santa Rita do Araguaia</option>
+                                                    <option value="1089">Santa Rita do Novo Destino</option>
+                                                    <option value="1090">Santa Rosa de Goiás</option>
+                                                    <option value="1091">Santa Tereza de Goiás</option>
+                                                    <option value="1092">Santa Terezinha de Goiás</option>
+                                                    <option value="1093">Santo Antônio da Barra</option>
+                                                    <option value="1094">Santo Antônio de Goiás</option>
+                                                    <option value="1095">Santo Antônio do Descoberto</option>
+                                                    <option value="1096">São Domingos</option>
+                                                    <option value="1097">São Francisco de Goiás</option>
+                                                    <option value="1099">São João da Paraúna</option>
+                                                    <option value="1098">São João d`Aliança</option>
+                                                    <option value="1100">São Luís de Montes Belos</option>
+                                                    <option value="1101">São Luíz do Norte</option>
+                                                    <option value="1102">São Miguel do Araguaia</option>
+                                                    <option value="1103">São Miguel do Passa Quatro</option>
+                                                    <option value="1104">São Patrício</option>
+                                                    <option value="1105">São Simão</option>
+                                                    <option value="1106">Senador Canedo</option>
+                                                    <option value="1107">Serranópolis</option>
+                                                    <option value="1108">Silvânia</option>
+                                                    <option value="1109">Simolândia</option>
+                                                    <option value="1110">Sítio d`Abadia</option>
+                                                    <option value="1111">Taquaral de Goiás</option>
+                                                    <option value="1112">Teresina de Goiás</option>
+                                                    <option value="1113">Terezópolis de Goiás</option>
+                                                    <option value="1114">Três Ranchos</option>
+                                                    <option value="1115">Trindade</option>
+                                                    <option value="1116">Trombas</option>
+                                                    <option value="1117">Turvânia</option>
+                                                    <option value="1118">Turvelândia</option>
+                                                    <option value="1119">Uirapuru</option>
+                                                    <option value="1120">Uruaçu</option>
+                                                    <option value="1121">Uruana</option>
+                                                    <option value="1122">Urutaí</option>
+                                                    <option value="1123">Valparaíso de Goiás</option>
+                                                    <option value="1124">Varjão</option>
+                                                    <option value="1125">Vianópolis</option>
+                                                    <option value="1126">Vicentinópolis</option>
+                                                    <option value="1127">Vila Boa</option>
+                                                    <option value="1128">Vila Propício</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>1.5 Nacionalidade e Identificação</legend>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+
+                                        <label for="nacionalidadeCandidato" class="col-sm-2 control-label">1.5.1 Nacionalidade</label>
+                                        <div class="col-sm-10">
+                                            <div>
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="nacionalidadeCandidatoB" name="nacionalidadeCandidato" value="B" checked="" autocomplete="off"/>
+                                                    <span class="lbl"> Brasileira</span>
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="nacionalidadeCandidatoN" name="nacionalidadeCandidato" value="N" autocomplete="off"/>
+                                                    <span class="lbl"> Naturalizado</span>
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="nacionalidadeCandidatoE" name="nacionalidadeCandidato" value="E" autocomplete="off"/>
+                                                    <span class="lbl"> Estrangeira</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="nacionalidadeBN" style="display: none;">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="numeroRGCandidato" class="col-sm-4 control-label">1.5.2 Nº RG</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                                    <input type="text" class="form-control" id="numeroRGCandidato" name="numeroRGCandidato" value="10917839" maxlength="15" placeholder="Número do registro geral" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="orgaoRGCandidato" class="col-sm-4 control-label">1.5.3 Órgão Expedidor</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                                    <input type="text" class="form-control" id="orgaoRGCandidato" name="orgaoRGCandidato" value="SSP-MG" maxlength="30" placeholder="Órgão expedidor do registro geral" required="required" autocomplete="off"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="dataRGCandidato" class="col-sm-4 control-label">1.5.4 Data de Expedição</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                    <input type="text" class="form-control" id="dataRGCandidato" name="dataRGCandidato" value="26/07/1997" data-mask="99/99/9999" maxlength="10" placeholder="DD/MM/AAAA" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="cpfCandidato" class="col-sm-4 control-label">1.5.5 CPF</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                                    <input type="text" class="form-control" id="cpfCandidato" name="cpfCandidato" value="042.643.956-23" data-mask="999.999.999-99" maxlength="14" placeholder="000.000.000-00" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="nacionalidadeE" style="display: block;">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="numeroPassaporteCandidato" class="col-sm-4 control-label">1.5.6 Nº Passaporte</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                                    <input type="text" class="form-control" id="numeroPassaporteCandidato" name="numeroPassaporteCandidato" value="" maxlength="20" placeholder="Número do passaporte" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="validadePassaporteCandidato" class="col-sm-4 control-label">1.5.7 Validade Passaporte</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                    <input type="text" class="form-control" id="validadePassaporteCandidato" name="validadePassaporteCandidato" value="" data-mask="99/99/9999" maxlength="10" placeholder="DD/MM/AAAA" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="numeroRNECandidato" class="col-sm-4 control-label">1.5.8 Nº RNE</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                                    <input type="text" class="form-control" id="numeroRNECandidato" name="numeroRNECandidato" value="" maxlength="20" placeholder="Número do RNE" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="validadeRNECandidato" class="col-sm-4 control-label">1.5.9 Validade do RNE</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                    <input type="text" class="form-control" id="validadeRNECandidato" name="validadeRNECandidato" value="" data-mask="99/99/9999" maxlength="10" placeholder="DD/MM/AAAA" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>1.6 Dados de Contato e de Acesso</legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="telefone1Candidato" class="col-sm-4 control-label">1.6.1 Telefone</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                                <input type="tel" class="form-control" id="telefone1Candidato" name="telefone1Candidato" value="(62) 4141-7198" maxlength="15" placeholder="(00) 00000-0000" required="" autocomplete="off"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="telefone2Candidato" class="col-sm-4 control-label">1.6.2 Telefone</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                                <input type="tel" class="form-control" id="telefone2Candidato" name="telefone2Candidato" value="(62) 98185-8286" maxlength="15" placeholder="(00) 00000-0000" autocomplete="off"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="mailCandidato" class="col-sm-4 control-label">1.6.3 E-mail</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                                <input type="text" class="form-control" id="mailCandidato" name="mailCandidato" value="afonso@inf.ufg.br" maxlength="120" placeholder="E-mail do candidato" required=""/>             
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="mail2Candidato" class="col-sm-4 control-label">1.6.3.1 Repita o E-mail</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                                <input type="text" class="form-control" id="mail2Candidato" name="mail2Candidato" value="afonso@inf.ufg.br" maxlength="120" placeholder="Repita o e-mail do candidato" required=""/>             
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="pwd-container">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="senhaCandidato" class="col-sm-4 control-label">1.6.4 Senha de Acesso</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                                <input type="password" class="form-control" id="senhaCandidato" name="senhaCandidato" value="" maxlength="32" placeholder="Senha de acesso (inalterada)"/>
+                                            </div>
+                                            <div class="pwstrength_viewport_progress" style="padding-top: 10px"><div class="progress"><div class="progress-bar"><span class="password-verdict"></span></div></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="senha2Candidato" class="col-sm-4 control-label">1.6.4.1 Repita a Senha</label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                                <input type="password" class="form-control" id="senha2Candidato" name="senha2Candidato" value="" maxlength="32" placeholder="Repita a senha"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <div class="col-sm-offset-10 col-sm-2 text-right">
+                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </ui:define>
+
+</ui:composition>
+
+<!--                
+                                
+                                        
+                                        
+                                </form>
+                            </div>
+                        </div>
+            
+                        <script>
+                            $('#nascimentoCandidato').datepicker({
+                                autoclose: true,
+                                format: "dd/mm/yyyy"
+                            });
+                            $('#dataRGCandidato').datepicker({
+                                autoclose: true,
+                                format: "dd/mm/yyyy"
+                            });
+                            $('#validadePassaporteCandidato').datepicker({
+                                autoclose: true,
+                                format: "dd/mm/yyyy"
+                            });
+                            $('#validadeRNECandidato').datepicker({
+                                autoclose: true,
+                                format: "dd/mm/yyyy"
+                            });
+                            $('#dadosPessoais').validate({
+                                rules: {
+                                    nomeCandidato: {
+                                        minlength: 10
+                                    },
+                                    sexoCandidato: {
+                                        required: true
+                                    },
+                                    nascimentoCandidato: {
+                                        dateBR: true
+                                    },
+                                    cidadeNaturalidadeCandidato: {
+                                        minlength: 3
+                                    },
+                                    estadoNaturalidadeCandidato: {
+                                        minlength: 3
+                                    },
+                                    paiCandidato: {
+                                        minlength: 10
+                                    },
+                                    maeCandidato: {
+                                        minlength: 10
+                                    },
+                                    logradouroEnderecoCandidato: {
+                                        minlength: 5
+                                    },
+                                    complementoEnderecoCandidato: {
+                                        minlength: 5
+                                    },
+                                    bairroEnderecoCandidato: {
+                                        minlength: 6
+                                    },
+                                    cepEnderecoCandidato: {
+                                        minlength: 9
+                                    },
+                                    nacionalidadeCandidato: {
+                                        required: true
+                                    },
+                                    mailCandidato: {
+                                        email: true
+                                    },
+                                    mail2Candidato: {
+                                        equalTo: "#mailCandidato"
+                                    },
+                                    senhaCandidato: {
+                                        minlength: 8
+                                    },
+                                    senha2Candidato: {
+                                        equalTo: "#senhaCandidato"
+                                    }
+                                }
+                            });
+            
+                            var mask9digits = function(val) {
+                                return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+                            },
+                                    mask9Options = {
+                                        onKeyPress: function(val, e, field, options) {
+                                            field.mask(mask9digits.apply({}, arguments), options);
+                                        }
+                                    };
+                            $('#telefone1Candidato').mask(mask9digits, mask9Options);
+                            $('#telefone2Candidato').mask(mask9digits, mask9Options);
+            
+                            $(document).ready(function() {
+                                $('#estadoCandidato').change(function() {
+                                    $('#cidadeCandidato').html('<option>Carregando...</option>');
+                                    $('#cidadeCandidato').load('../../source/listaCidades.php?codigoEstado=' + $('#estadoCandidato').val());
+                                });
+            
+                                $("#mail2Candidato").keydown(function(event) {
+                                    if (event.ctrlKey == true && event.which == '86') {
+                                        event.preventDefault();
+                                    }
+                                });
+            
+                                $('#mail2Candidato').bind('paste', function(e) {
+                                    e.preventDefault();
+                                });
+            
+                                "use strict";
+                                var options = {};
+                                options.ui = {
+                                    container: "#pwd-container",
+                                    verdicts: [
+                                        "<span class='glyphicon glyphicon-thumbs-down'></span> Fraca",
+                                        "<span class='glyphicon glyphicon-warning-sign'></span> Normal",
+                                        "<span class='glyphicon glyphicon-ok'></span> Média",
+                                        "<span class='glyphicon glyphicon-thumbs-up'></span> Forte",
+                                        "<span class='glyphicon glyphicon-thumbs-up'></span> Muito forte"],
+                                    showVerdictsInsideProgressBar: true,
+                                    viewports: {
+                                        progress: ".pwstrength_viewport_progress"
+                                    }
+                                };
+                                options.common = {
+                                    debug: true
+                                };
+                                $('#senhaCandidato').pwstrength(options);
+            
+                                $(document).on('focus', ':input', function() {
+                                    $(this).attr('autocomplete', 'off');
+                                });
+            
+                                $('#nacionalidadeCandidatoB').click(function() {
+                                    $('#nacionalidadeBN').css('display', 'block');
+                                    $('#nacionalidadeE').css('display', 'none');
+                                    $('#numeroPassaporteCandidato').attr('required', 'false');
+                                    $('#validadePassaporteCandidato').attr('required', 'false');
+                                    $('#numeroRNECandidato').attr('required', 'false');
+                                    $('#validadeRNECandidato').attr('required', 'false');
+                                });
+            
+                                $('#nacionalidadeCandidatoN').click(function() {
+                                    $('#nacionalidadeBN').css('display', 'block');
+                                    $('#nacionalidadeE').css('display', 'none');
+                                    $('#numeroPassaporteCandidato').attr('required', 'false');
+                                    $('#validadePassaporteCandidato').attr('required', 'false');
+                                    $('#numeroRNECandidato').attr('required', 'false');
+                                    $('#validadeRNECandidato').attr('required', 'false');
+                                });
+            
+                                $('#nacionalidadeCandidatoE').click(function() {
+                                    $('#nacionalidadeBN').css('display', 'none');
+                                    $('#nacionalidadeE').css('display', 'block');
+                                    $('#numeroRGCandidato').attr('required', 'false');
+                                    $('#orgaoRGCandidato').attr('required', 'false');
+                                    $('#dataRGCandidato').attr('required', 'false');
+                                    $('#cpfCandidato').attr('required', 'false');
+                                });
+                            });
+                        </script>
+                    </div><div class="datepicker datepicker-dropdown dropdown-menu" style="display: none;"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">Agosto 1979</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr><tr><th class="dow">Do</th><th class="dow">Se</th><th class="dow">Te</th><th class="dow">Qu</th><th class="dow">Qu</th><th class="dow">Se</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">29</td><td class="day old">30</td><td class="day old">31</td><td class="day active">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td></tr><tr><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td></tr><tr><td class="day">12</td><td class="day">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td></tr><tr><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td></tr><tr><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day">31</td><td class="day new">1</td></tr><tr><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">1979</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Fev</span><span class="month">Mar</span><span class="month">Abr</span><span class="month">Mai</span><span class="month">Jun</span><span class="month">Jul</span><span class="month active">Ago</span><span class="month">Set</span><span class="month">Out</span><span class="month">Nov</span><span class="month">Dez</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">1970-1979</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr></thead><tbody><tr><td colspan="7"><span class="year old">1969</span><span class="year">1970</span><span class="year">1971</span><span class="year">1972</span><span class="year">1973</span><span class="year">1974</span><span class="year">1975</span><span class="year">1976</span><span class="year">1977</span><span class="year">1978</span><span class="year active">1979</span><span class="year old">1980</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div></div><div class="datepicker datepicker-dropdown dropdown-menu" style="display: none;"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">Julho 1997</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr><tr><th class="dow">Do</th><th class="dow">Se</th><th class="dow">Te</th><th class="dow">Qu</th><th class="dow">Qu</th><th class="dow">Se</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">29</td><td class="day old">30</td><td class="day">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td></tr><tr><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td></tr><tr><td class="day">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td><td class="day">19</td></tr><tr><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day active">26</td></tr><tr><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day">31</td><td class="day new">1</td><td class="day new">2</td></tr><tr><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td><td class="day new">9</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">1997</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Fev</span><span class="month">Mar</span><span class="month">Abr</span><span class="month">Mai</span><span class="month">Jun</span><span class="month active">Jul</span><span class="month">Ago</span><span class="month">Set</span><span class="month">Out</span><span class="month">Nov</span><span class="month">Dez</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">1990-1999</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr></thead><tbody><tr><td colspan="7"><span class="year old">1989</span><span class="year">1990</span><span class="year">1991</span><span class="year">1992</span><span class="year">1993</span><span class="year">1994</span><span class="year">1995</span><span class="year">1996</span><span class="year active">1997</span><span class="year">1998</span><span class="year">1999</span><span class="year old">2000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div></div><div class="datepicker datepicker-dropdown dropdown-menu" style="display: none;"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">Junho 2017</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr><tr><th class="dow">Do</th><th class="dow">Se</th><th class="dow">Te</th><th class="dow">Qu</th><th class="dow">Qu</th><th class="dow">Se</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td><td class="day old">31</td><td class="day">1</td><td class="day">2</td><td class="day">3</td></tr><tr><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td></tr><tr><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td></tr><tr><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td></tr><tr><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day active">30</td><td class="day new">1</td></tr><tr><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">2017</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Fev</span><span class="month">Mar</span><span class="month">Abr</span><span class="month">Mai</span><span class="month active">Jun</span><span class="month">Jul</span><span class="month">Ago</span><span class="month">Set</span><span class="month">Out</span><span class="month">Nov</span><span class="month">Dez</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">2010-2019</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year active">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div></div><div class="datepicker datepicker-dropdown dropdown-menu" style="display: none;"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">Junho 2017</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr><tr><th class="dow">Do</th><th class="dow">Se</th><th class="dow">Te</th><th class="dow">Qu</th><th class="dow">Qu</th><th class="dow">Se</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td><td class="day old">31</td><td class="day">1</td><td class="day">2</td><td class="day">3</td></tr><tr><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td></tr><tr><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td></tr><tr><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td></tr><tr><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day active">30</td><td class="day new">1</td></tr><tr><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">2017</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Fev</span><span class="month">Mar</span><span class="month">Abr</span><span class="month">Mai</span><span class="month active">Jun</span><span class="month">Jul</span><span class="month">Ago</span><span class="month">Set</span><span class="month">Out</span><span class="month">Nov</span><span class="month">Dez</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-left"></i></th><th colspan="5" class="switch">2010-2019</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-chevron-right"></i></th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year active">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Hoje</th></tr></tfoot></table></div></div>
+                    <footer class="footer">
+                        <div class="container">
+                            <p class="text-muted text-center">Sistema de Gestão do Processo Seletivo PPGCC Mestrado INF/UFG | Desenvolvido por <a href="http://lattes.cnpq.br/4739463636062171" target="_blank">Rafael Feitosa</a></p>
+                        </div>
+                    </footer>
+            
+            
+            
+            
+                    <script>
+            
+                        var statusDadosPessoais = '<span class=\"label label-success\">OK</span>';
+                        ;
+                        $('#statusDadosPessoais').html(statusDadosPessoais);
+            
+                        var statusInscricao = ''
+                                ;
+                        $('#statusInscricao').html(statusInscricao);
+            
+                        var statusDocumentacao = ''
+                                ;
+                        $('#statusDocumentacao').html(statusDocumentacao);
+            
+                        var statusComprovante = ''
+                                ;
+                        $('#statusComprovante').html(statusComprovante);
+            
+                        var statusGRU = ''
+                                ;
+                        $('#statusGRU').html(statusGRU);
+            
+                        var statusGeral = ''
+                                + '<span class="label label-warning">Aguardando Inscrição</span>';
+                        $('#statusGeral').html(statusGeral);
+                    </script>-->
+
+<!--    </body>
+
+</html>-->
